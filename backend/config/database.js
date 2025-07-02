@@ -8,8 +8,8 @@ dotenv.config();
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'ecommerce',
+  password: process.env.DB_PASSWORD || 'Hacker!@#123123',
+  database: process.env.DB_NAME || 'ecommerce_store',
   port: process.env.DB_PORT || 3306,
   waitForConnections: true,
   connectionLimit: 10,

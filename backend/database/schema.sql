@@ -1,7 +1,7 @@
-
--- Create the ecommerce database
-CREATE DATABASE IF NOT EXISTS ecommerce;
-USE ecommerce;
+-- Create the ecommerce database if it doesn't exist
+DROP DATABASE IF EXISTS ecommerce_store;
+CREATE DATABASE IF NOT EXISTS ecommerce_store;
+USE ecommerce_store;
 
 -- Users table for authentication
 CREATE TABLE IF NOT EXISTS users (
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS cart (
   UNIQUE KEY unique_user_product (user_id, product_id)
 );
 
--- Wishlist/Favorites table
+-- Wishlist table
 CREATE TABLE IF NOT EXISTS wishlist (
   id INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT NOT NULL,
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS contact_messages (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Insert sample products data (only if table is empty)
+-- Insert sample products data (flattened to one line each)
 INSERT IGNORE INTO products (id, name, price, original_price, image, rating, reviews, category, in_stock, description) VALUES
 (1, 'Premium Wireless Headphones', 299.99, 399.99, 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop', 4.8, 124, 'Electronics', TRUE, 'High-quality wireless headphones with noise cancellation'),
 (2, 'Smart Fitness Watch', 199.99, NULL, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop', 4.6, 89, 'Electronics', TRUE, 'Track your fitness goals with this advanced smartwatch'),
